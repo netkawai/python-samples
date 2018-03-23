@@ -19,7 +19,7 @@ from sys import stdout
 
 def printf(format, *args):
     sys.stdout.write(format % args)
-	
+
 class AbortError( Exception ):
     def __init__( self, format, *args ):
         self.value = format % args
@@ -146,7 +146,8 @@ class ShellProbe( Action ):
 ##   i686-pc-cygwin             (Cygwin, Microsoft Vista)
 ##   x86_64-unknown-linux-gnu   (Linux, Fedora 10 x86_64)
 ##
-		
+
+
 class HostTupleProbe( ShellProbe, list ):
     GNU_TUPLE_RE = '([^-]+)-?([^-]*)-([^0-9-]+)([^-]*)-?([^-]*)'
 
@@ -189,7 +190,7 @@ class HostTupleProbe( ShellProbe, list ):
         return False
 try:
     host  = HostTupleProbe(); host.run()
-    
+
 
     printf(host.spec + '\n')
     printf(host.machine + '\n')
